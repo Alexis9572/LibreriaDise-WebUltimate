@@ -1,0 +1,31 @@
+$aside-w: 120px;
+
+.private-container {
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 1em;
+
+    header {
+        background-color: blue;
+        margin: 0;
+        padding: 1.4em;
+        color: white;
+    }
+    .body {
+        display: flex;
+        flex-direction: row;
+        aside {
+            background: blue;
+            color: white;
+            padding: 1em 0.6em 1em 2em;
+            width: $aside-w;
+        }
+        section {
+            width: calc( 100vw - $aside-w );
+            margin: 0;
+            padding: 1.6em;
+            background-color: greenyellow;
+        }
+    }
+    
+}

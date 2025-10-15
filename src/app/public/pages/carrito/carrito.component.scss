@@ -1,0 +1,162 @@
+/* Fondo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../../../../assets/images/Logo.jpeg'); /* Fondo con la imagen proporcionada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    padding: 20px;
+}
+
+/* Contenedor principal del carrito */
+.cart-container {
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Títulos */
+h2 {
+    font-size: 24px;
+    color: #444; /* Color de texto para contraste */
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente juvenil */
+}
+
+/* Estilos para los pasos del proceso de compra */
+.step-indicator {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.step-indicator span {
+    font-size: 16px;
+    margin: 0 15px;
+    color: #777;
+}
+
+.step-indicator .current {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Estilos para los productos del carrito */
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-item img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.product-title {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Resumen del pedido */
+.summary {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo casi blanco */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* Estilo de los botones */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Color azul vibrante */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+.cart-item-quantity {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    align-items: center;
+    margin-left: 200px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de hover */
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: #333;
+    margin-left: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #bbb;
+}
+
+/* Estilos para entradas de texto y selección */
+input[type="text"],
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60px;
+    margin-left: 10px;
+}
+
+/* Enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Estilos adicionales para el cupón */
+.coupon-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}

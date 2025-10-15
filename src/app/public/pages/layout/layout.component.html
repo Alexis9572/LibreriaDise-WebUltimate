@@ -1,0 +1,91 @@
+<div class="public-container">
+  <!-- =======================
+       Navbar fija y responsive
+  ======================= -->
+  <header class="navbar navbar-expand-lg" *ngFor="let d of meny">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="../../../../assets/images/LogoNew1.png" alt="Yazmin Librería" />
+      </div>
+
+      <!-- Botón hamburguesa para móviles -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Contenido colapsable -->
+      <!-- =======================
+           Agregado: menú responsive
+      ======================= -->
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <!-- Barra de búsqueda -->
+        <div class="search-container mx-auto">
+          <input type="text" placeholder="Buscar..." />
+        </div>
+
+        <!-- Enlaces de navegación -->
+        <nav class="nav-links ms-auto">
+          <a routerLink="/home">Inicio</a>
+          <span>|</span>
+          <a routerLink="/acerca">Acerca</a>
+          <span>|</span>
+          <a [routerLink]="['/tienda']">Tienda</a>
+          <span>|</span>
+          <a routerLink="/ayuda">Ayuda</a>
+          <span>|</span>
+          <span style="margin: 0 10px;"></span>
+        </nav>
+
+        <!-- =======================
+             Botones de login y carrito
+        ======================= -->
+        <div class="action-buttons ms-3" *ngFor="let x of d.subMenu">
+          <!-- Botón de login que redirige a /auth -->
+          <a [routerLink]="[x.url]">
+            <button class="button">
+          <!-- Ícono según el nombre -->
+          <i *ngIf="x.name === 'Login' || x.name === 'Cuenta'" class="fas fa-user"></i>
+          <i *ngIf="x.name === 'Carrito'" class="fas fa-shopping-cart"></i>
+           {{x.name}}
+            </button>
+          </a>
+          
+          <!--      
+           <a [routerLink]="['/login']">
+              <button class="button">
+                <i class="fas fa-user"></i> Login
+              </button>
+            </a> -->
+          
+          <!--      
+           <a routerLink="/auth/ingresar">
+            <button class="button">
+              <i class="fas fa-user"></i> Login
+            </button>
+          </a> -->
+
+          <!-- Botón de carrito que redirige a /carrito -->
+          <!-- <a routerLink="/carrito">
+            <button class="button">
+              <i class="fas fa-shopping-cart"></i> Carrito ({{carrito.length}})
+            </button>
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+
+  <footer>
+    <p>
+      <app-pie-pagina></app-pie-pagina>
+    </p>
+  </footer>
+</div>

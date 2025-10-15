@@ -1,0 +1,24 @@
+<p>contacts works! -- {{shared}}</p>
+<div *ngIf="frmLoadSt == loadStateEnum.Loading">
+    <loading-gears message="Guardando sus datos, por favor espere"></loading-gears>
+</div>
+<div *ngIf="frmLoadSt == loadStateEnum.Success">
+    Los datos fueron guardados correctamente
+</div>
+<div *ngIf="frmLoadSt == loadStateEnum.None">
+    <form action="">
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name>
+        </div>
+        <div>
+            <label for="lastName">Apellidos</label>
+            <input type="text" name="lastName" #lastName>
+        </div>
+        <div>
+            <button type="reset">Cancelar</button>
+            <button type="button" (click)="save(name.value, lastName.value)">Guardar</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,357 @@
+/* ==========================
+   General
+========================== */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcfcfc;
+    color: #020202;
+}
+
+/* ==========================
+   Banner general
+========================== */
+.banner {
+    position: relative;
+    height: 400px; /* Altura del banner en escritorio */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 100px 0; /* Espaciado interno vertical */
+}
+
+.banner img,
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Evita espacios fantasmas */
+}
+
+/* Texto del banner principal */
+.banner-text {
+  position: relative;
+  text-align: center;
+  padding: 20px 30px;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Sombreado difuso circular degradado */
+.banner-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgb(255, 255, 255) 0%,   
+    rgba(218, 218, 218, 0.35) 40%,  
+    transparent 80%
+  );
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(12px);
+}
+
+/* Título */
+.banner-text h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #19058a; 
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(238, 255, 0, 0.6);
+}
+
+/* Subtítulo */
+.banner-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000; 
+  margin-bottom: 0;
+  text-shadow: 0 1px 8px rgba(48, 1, 49, 0.5);
+}
+
+/* ==========================
+   Header
+========================== */
+header {
+    background-color: #00ff00;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Buscador */
+.buscador {
+    display: flex;
+    align-items: center;
+}
+
+.buscador input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.buscador button {
+    padding: 10px 20px;
+    background-color: #357a38;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ==========================
+   Categorías
+========================== */
+.categorias {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.categorias h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.categorias-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.categoria {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.categoria:hover {
+    transform: translateY(-5px);
+}
+
+.categoria img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.categoria a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #800dc2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.categoria a:hover {
+    background-color: #240024;
+}
+
+/* ==========================
+   Productos Destacados
+========================== */
+.destacados {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.destacados h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.destacados-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.producto {
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.producto .precio {
+    font-weight: bold;
+    color: #4CAF50;
+    display: block;
+    margin: 10px 0;
+}
+
+.producto a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.producto a:hover {
+    background-color: #357a38;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 768px) {
+    .categorias-grid,
+    .destacados-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .banner {
+        height: 450px; /* Ajuste en móvil */
+        padding: 0; /* Quitar padding extra */
+    }
+
+    .banner-text h2 {
+        font-size: 2em;
+    }
+
+    .banner-text p {
+        font-size: 1em;
+    }
+}
+
+
+
+/* Título de la sección */
+.destacados h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tarjetas */
+.destacados .card {
+  border-radius: 15px; /* esquinas redondeadas */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover en tarjeta */
+.destacados .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgb(0, 0, 0);
+}
+
+/* Imagen de la tarjeta */
+.destacados .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* mantiene proporción y recorta si es necesario */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover en imagen */
+.destacados .card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Cuerpo de la tarjeta */
+.destacados .card-body {
+  padding: 1rem;
+}
+
+.destacados .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.destacados .card-text {
+  font-size: 0.95rem;
+  color: #000000;
+  margin-bottom: 0.75rem;
+}
+
+/* Precio */
+.destacados .precio {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0011ff!important;
+}
+
+/* Footer y botón */
+.destacados .card-footer {
+  background-color: transparent;
+  border-top: none;
+  padding: 0.75rem 1rem;
+}
+
+.destacados .btn-primary {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  background-color: #838383;
+  border: none;
+  font-weight: 500;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.destacados .btn-primary:hover {
+  background-color: #680081;
+  transform: scale(1.05);
+}
+

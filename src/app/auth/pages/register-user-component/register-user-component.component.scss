@@ -1,0 +1,52 @@
+body {
+  background: linear-gradient(135deg, #d2b48c, #a0522d); /* Degradado madera */
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  padding: 40px 20px; /* Espacio arriba y abajo */
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  background: #f5deb3; /* Beige claro */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  color: #5c3317;
+}
+
+.icono-libro {
+  font-size: 50px;
+  color: #8b4513; /* Marrón madera */
+}
+
+.form-control, .form-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #8b4513;
+  border-color: #5c3317;
+
+  &:hover {
+    background-color: #5c3317;
+  }
+}
+
+.btn-success {
+  background-color: #6b8e23;
+  border: none;
+
+  &:hover {
+    background-color: #556b2f;
+  }
+}
+
+.seccion {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #d2b48c;
+}

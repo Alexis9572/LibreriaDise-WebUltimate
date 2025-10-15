@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <main>
+<!-- ==========================
+     Banner principal
+========================== -->
+<section class="banner position-relative m-0 p-0">
+  <!-- Imagen de fondo -->
+  <img src="../../../../assets/images/principal.jpeg" class="img-fluid w-100 banner-img" alt="Banner Principal">
+
+  <!-- Texto centrado sobre la imagen -->
+  <div class="banner-text position-absolute top-50 start-50 translate-middle text-center">
+    <h2>¡Muy divertido con los colores!</h2>
+    <p>“Encuentra en un solo lugar los materiales de calidad que tus manualidades y proyectos escolares necesitan.”</p>
+    <!-- <a href="#" class="btn btn-light text-success">Explorar productos</a> -->
+  </div>
+</section>
+        <section class="categorias">
+            <h2>Categorías Destacadas</h2>
+            <div class="categorias-grid">
+                <div class="categoria">
+                    <img src="../../../../assets/images/utilesEscritorio.jpg" alt="Útiles de escritorio">
+                    <a href="#">ÚTILES DE ESCRITORIO</a>
+                </div>
+                <div class="categoria">
+                    <img src="../../../../assets/images/campaniaEscolar.avif" alt="Campaña escolar">
+                    <a href="#">CAMPAÑA ESCOLAR</a>
+                </div>
+                <div class="categoria">
+                    <img src="../../../../assets/images/arteydisenio.jpg" alt="Arte y diseño">
+                    <a href="#">ARTE Y DISEÑO</a>
+                </div>
+            </div>
+        </section>
+                    <!-- <div class="destacados-grid">
+                <div class="producto">
+                    <img src="../../../../assets/images/LapizArtesco2B.jpg" alt="Producto destacado 1">
+                    <h3>Producto 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span class="precio">S/10.00</span>
+                    <a href="#" >Comprar ahora</a>
+                </div>
+                <div class="producto">
+                    <img src="../../../../assets/img/LapizArtesco2B.jpg" alt="Producto destacado 2">
+                    <h3>Producto 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span class="precio">$15.00</span>
+                    <a href="#">Comprar ahora</a>
+                </div>
+                <div class="producto">
+                    <img src="../../../../assets/img/LapizArtesco2B.jpg" alt="Producto destacado 3">
+                    <h3>Producto 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span class="precio">$20.00</span>
+                    <a href="#">Comprar ahora</a>
+                </div>
+            </div> -->
+ <section class="destacados container my-4">
+   <h2 class="text-center mb-4"><strong>Productos Destacados</strong></h2>
+   <div class="row">
+     <div class="col-md-4 mb-4" *ngFor="let d of productoResponse | slice:0:6">
+       <div class="card h-100">
+         <img [src]="d.tipo || 'assets/images/default.jpg'" class="card-img-top" alt="{{d.nombre}}">
+         <div class="card-body">
+           <h5 class="card-title">{{d.nombre}}</h5>
+           <p class="card-text">{{d.descripcion}}</p>
+           <span class="precio text-success fw-bold">{{d.precio | currency:'PEN'}}</span>
+         </div>
+         <div class="card-footer text-center">
+           <button class="btn btn-primary" (click)="addProducto(d)">Comprar ahora</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+</main>
+</body>
+</html>
+
+<!--
+#====================== Comandos principales para actualizar tu web en Firebase ==================
+
+# 1: Compilar Angular (genera la carpeta dist/)
+ng build --configuration production
+
+# 2: Subir la versión compilada a Firebase Hosting
+firebase deploy --only hosting
+ -->

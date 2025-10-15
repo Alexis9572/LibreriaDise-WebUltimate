@@ -1,0 +1,27 @@
+<!-- ======= Página de Bienvenida ======= -->
+<div class="container">
+  <!-- ======= Encabezado con imágenes ======= -->
+  <div class="header">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
+      alt="Happy Face Izquierda"
+    />
+    <div class="welcome">¡Bienvenido!</div>
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
+      alt="Happy Face Derecha"
+    />
+  </div>
+
+  <!-- ======= Sección de perfil ======= -->
+  <div class="profile">
+    <img src="https://via.placeholder.com/150" alt="User Photo" />
+    <p>{{ usuario }}</p>
+  </div>
+
+  <!-- ======= Botones ======= -->
+  <button routerLink="/home" type="button" class="btn">Volver</button>
+
+  <!-- Botón para cerrar sesión -->
+  <button class="btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+</div>

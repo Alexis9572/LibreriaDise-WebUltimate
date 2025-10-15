@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+
+<!-- ======= Formulario de Inicio de Sesión con Imagen Lateral ======= -->
+<div *ngIf="frmLoadSt == loadStateEnum.None">
+  <div class="background">
+    <div class="login-wrapper">
+      
+      <!-- Imagen lateral -->
+      <div class="login-image">
+        <img src="../../../../assets/images/logeate.png" alt="Imagen decorativa" />
+      </div>
+
+      <!-- Cuadro de inicio de sesión -->
+      <div class="container">
+        <div class="login-form">
+          <h2>Iniciar Sesión</h2>
+          <form [formGroup]="loginForm">
+            <label for="username">Usuario</label>
+            <input formControlName="userName" type="text" id="username" placeholder="Ingresa tu usuario" />
+
+            <label for="password">Contraseña</label>
+            <input formControlName="password" type="password" id="password" placeholder="Ingresa tu contraseña" />
+
+            <button type="submit" (click)="login()">Iniciar Sesión</button>
+
+            <p>¿No tienes una cuenta? <a routerLink="/register-user">Regístrate</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= Estado de carga ======= -->
+<div *ngIf="frmLoadSt == loadStateEnum.Loading">
+  <app-carga-pages></app-carga-pages>
+</div>
+
+<!-- ======= Estado de éxito ======= -->
+<div *ngIf="frmLoadSt == loadStateEnum.Success">
+  <app-pag-bienvenido></app-pag-bienvenido>
+</div>
+</html>

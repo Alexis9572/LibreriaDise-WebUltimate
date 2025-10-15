@@ -1,0 +1,52 @@
+<main>
+  <header class="py-5 text-center bg-gradient">
+    <div class="container">
+      <h1 class="display-4 gradient-text">Encuentra tus productos aquí ¡¡</h1>
+      <p class="lead gradient-text">Útiles de escritorio, arte y diseño y mucho más</p>
+
+    </div>
+
+    <!-- Carrusel -->
+    <div id="carouselExample" class="carousel slide shadow-lg rounded" data-bs-ride="carousel">
+      <div class="carousel-inner rounded">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <img src="../../../../assets/images/tienda01.jpg" class="d-block w-100 carousel-img" alt="Foto 1">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="../../../../assets/images/tienda02.jpg" class="d-block w-100 carousel-img" alt="Foto 2">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="../../../../assets/images/tienda03.jpg" class="d-block w-100 carousel-img" alt="Foto 3">
+        </div>
+      </div>
+      <!-- Botones -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </header>
+</main>
+
+<section class="destacados container my-4">
+    <h2 class="text-center mb-4">Productos</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let d of productoResponse">
+            <div class="card h-100">
+                <img [src]="d.tipo" class="card-img-top" alt="{{d.nombre}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{d.nombre}}</h5>
+                    <p class="card-text">{{d.descripcion}}</p>
+                    <span class="precio text-success fw-bold">{{d.precio | currency}}</span>
+                </div>
+                <div class="card-footer text-center">
+                    <a (click)="addProducto(d)" class="btn btn-primary">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

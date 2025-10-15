@@ -1,0 +1,54 @@
+<div class="cart-container" >
+    <div class="step-indicator">
+        <span class="current">1. Carro de la compra</span>
+        <span>2. Detalles de envío</span>
+        <span>3. Opciones de pago</span>
+    </div>
+    
+    <h2>Carro de la compra</h2>
+    
+    <div class="product-item"  *ngFor="let item of carrito" >
+        <img src="{{item.producto.tipo}}" alt="Stabilo Boss Original">
+        <div class="product-details">
+            <div class="product-title">{{item.producto.nombre}}</div>
+            <div class="product-description">{{item.producto.descripcion}}</div>
+            <div class="product-description">{{item.producto.categoria}}</div>
+            <div>{{item.producto.precio}}</div>
+            <div class="cart-item-quantity">  
+                <button class="btn-quantity" (click)="quitar1(item)">&#8722;</button>            
+                <span><strong>Cantidad:</strong>  {{item.cantidad}}</span>
+            </div>
+            <div class="cart-item-quantity">
+                 <button class="btn-quantity" (click)="agregar1(item)">&#43;</button>
+            </div>
+           
+            <button class="btn btn-danger" (click)="eliminarProducto(item)" style="background-color: red;">Eliminar</button>
+            
+        </div>
+        <div class="cart-item-total">
+            <p class="cart-item-price"></p>
+        </div>
+    </div>
+    
+    <!-- <div class="product-item">
+        <img src="image-artesco.jpg" alt="Artesco Colores">
+        <div class="product-details">
+            <div class="product-title">ARTESCO – COLORES X 48 UNIDADES</div>
+            <div class="product-description">Colores súper intensos y resistentes.</div>
+            <div>S/42.90</div>
+        </div>
+        <select>
+            <option>1 pcs</option>
+            <option>2 pcs</option>
+            <option>3 pcs</option>
+        </select>
+    </div> -->
+    
+    <div class="summary">
+        <h2>Resumen</h2>
+        <p>ENVÍO: GRATIS</p>
+        <div class="total">TOTAL:{{ total | currency:'USD' }}</div>
+        <button routerLink="/detalle-envio" type="button">Siguiente</button>
+        <button routerLink="/tienda" type="button" class="cancel-button">Cancelar</button>
+    </div>
+</div>
