@@ -1,52 +1,72 @@
-body {
-  background: linear-gradient(135deg, #d2b48c, #a0522d); /* Degradado madera */
+.contenedor-separado {
   display: flex;
-  justify-content: center; /* Centrado horizontal */
-  padding: 40px 20px; /* Espacio arriba y abajo */
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
 }
 
-.card {
-  border: none;
-  border-radius: 15px;
-  background: #f5deb3; /* Beige claro */
-  padding: 2rem;
-  box-sizing: border-box;
+.card-imagen,
+.card-formulario {
+  border: 2px solid #000;
+  border-radius: 10px;
+  background: #fff;
 }
 
-.card h2 {
-  color: #5c3317;
+.card-imagen {
+  padding: 10px;
+  width: 350px;
 }
 
-.icono-libro {
-  font-size: 50px;
-  color: #8b4513; /* Marrón madera */
+.imagen-lado {
+  width: 100%;
+  height: auto;
 }
 
-.form-control, .form-select {
-  padding: 0.5rem;
-  font-size: 1rem;
+.card-formulario {
+  width: 550px;
 }
 
-.btn-primary {
-  background-color: #8b4513;
-  border-color: #5c3317;
+@media (max-width: 768px) {
+  .contenedor-separado {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-  &:hover {
-    background-color: #5c3317;
+  .card-imagen {
+    display: none;
+  }
+
+  .card-formulario {
+    width: 100%;
   }
 }
-
-.btn-success {
-  background-color: #6b8e23;
+/* BOTÓN REGÍSTRATE CON GOOGLE */
+.btn-google-login {
+  width: 100%;
+  padding: 12px;
   border: none;
-
-  &:hover {
-    background-color: #556b2f;
-  }
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff, #f2f2f2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #444;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: .2s;
+  margin-top: 15px; /* separa este botón del resto */
 }
 
-.seccion {
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid #d2b48c;
+.btn-google-login:hover {
+  background: linear-gradient(135deg, #f5f5f5, #e4e4e4);
+  transform: scale(1.02);
+}
+
+.google-icon {
+  width: 22px;
+  height: 22px;
 }

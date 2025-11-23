@@ -1,4 +1,5 @@
-export const dominio = "https://alexiswww-001-site1.ntempurl.com/";
+export const dominio = "https://alexiswww-001-site1.ntempurl.com/";  //Este es para el Backend subida en 
+//export const dominio = "https://localhost:7093/"    //Este es para el SqlServer + Backend
 
 export const UrlConstans = {
     rol: dominio + 'api/Rol',
