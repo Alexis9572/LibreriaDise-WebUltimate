@@ -1,9 +1,53 @@
- <nav class="col-md-2 d-none d-md-block sidebar">
-        <h2>SB ADMIN²</h2>
-        <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/ventas']">Ventas</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/pedidos']">Pedidos</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/productos']">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/devoluciones']">Devoluciones</a></li>
-        </ul>
-</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- SIDEBAR AZUL -->
+    <nav class="col-md-2 d-none d-md-block sidebar-custom">
+      <h2 class="sidebar-title">SB ADMIN²</h2>
+
+      <ul class="nav flex-column">
+
+        <!-- MENU NIVEL 1 -->
+        <li *ngFor="let item of meny" class="nav-item">
+
+          <a class="nav-link text-white"
+             href="#"
+             data-bs-toggle="collapse"
+             [attr.data-bs-target]="'#' + item.target">
+            {{ item.name }}
+          </a>
+
+          <!-- SUBMENÚ -->
+          <ul class="collapse ps-3" [id]="item.target">
+            <li class="nav-item" *ngFor="let sub of item.subMenu">
+              <a class="nav-link text-light" [routerLink]="sub.url">
+                <i [class]="sub.icon"></i> {{ sub.name }}
+              </a>
+            </li>
+          </ul>
+
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="col-md-10 ms-sm-auto px-4 py-3">
+
+      <h1 class="mb-4 fw-semibold">DEVOCUIONES</h1>
+
+      <!-- TARJETAS -->
+           <div class="row g-3 cards">
+          <div class="col-md-4" *ngFor="let d of devolucionResponse">
+            <div class="card p-3">
+              <h4 class="card-title">{{d.cantidad}}</h4>
+              <p class="value">Precio: {{d.estado}}</p>
+              <p class="text-muted">{{d.productos}}</p>
+            </div>
+          </div>
+  </div>
+
+    </main>
+
+  </div>
+</div>

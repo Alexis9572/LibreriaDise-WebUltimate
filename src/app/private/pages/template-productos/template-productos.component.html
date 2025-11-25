@@ -1,41 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SB Admin Clone</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="container-fluid">
+  <div class="row">
 
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-2 d-none d-md-block sidebar">
-        <h2>SB ADMIN²</h2>
-        <ul class="nav flex-column">
-          
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/pedidos']">Pedidos</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/productos']">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/dasboard/devoluciones']">Devoluciones</a></li>
-        </ul>
-      </nav>
+    <!-- SIDEBAR AZUL -->
+    <nav class="col-md-2 d-none d-md-block sidebar-custom">
+      <h2 class="sidebar-title">SB ADMIN²</h2>
 
-      <!-- Content -->
-     
-      <main class="col-md-10 ms-sm-auto px-md-4">
-        <!-- Navbar -->
-           <h1>Productos</h1>
-        <nav class="navbar navbar-expand navbar-light navbar-custom mb-4">
-          <form class="d-flex w-50">
-            <input class="form-control me-2" type="search" placeholder="Search for..." aria-label="Search">
-          </form>
-          <span class="ms-auto fw-semibold">Douglas McGee</span>
-        </nav>
+      <ul class="nav flex-column">
 
-        <!-- Cards -->
-        <div class="row g-3 cards">
+        <!-- MENU NIVEL 1 -->
+        <li *ngFor="let item of meny" class="nav-item">
+
+          <a class="nav-link text-white"
+             href="#"
+             data-bs-toggle="collapse"
+             [attr.data-bs-target]="'#' + item.target">
+            {{ item.name }}
+          </a>
+
+          <!-- SUBMENÚ -->
+          <ul class="collapse ps-3" [id]="item.target">
+            <li class="nav-item" *ngFor="let sub of item.subMenu">
+              <a class="nav-link text-light" [routerLink]="sub.url">
+                <i [class]="sub.icon"></i> {{ sub.name }}
+              </a>
+            </li>
+          </ul>
+
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="col-md-10 ms-sm-auto px-4 py-3">
+
+      <h1 class="mb-4 fw-semibold">PRODUCTOS</h1>
+
+      <!-- TARJETAS -->
+       <div class="row g-3 cards">
           <div class="col-md-4" *ngFor="let d of productoResponse">
             <div class="card p-3">
               <h4 class="card-title">{{d.nombre}}</h4>
@@ -44,10 +46,8 @@
             </div>
           </div>
         </div>
-      </main>
-    </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    </main>
+
+  </div>
+</div>
