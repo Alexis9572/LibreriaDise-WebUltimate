@@ -21,23 +21,29 @@
     <!-- <a href="#" class="btn btn-light text-success">Explorar productos</a> -->
   </div>
 </section>
-        <section class="categorias">
-            <h2>Categorías Destacadas</h2>
-            <div class="categorias-grid">
-                <div class="categoria">
-                    <img src="../../../../assets/images/utilesEscritorio.jpg" alt="Útiles de escritorio">
-                    <a href="#">ÚTILES DE ESCRITORIO</a>
+            <section class="categorias">
+                <h2>Categorías Destacadas</h2>
+                <div class="categorias-grid">
+
+                    <div class="categoria">
+                        <img src="../../../../assets/images/Libros.jpg" alt="Útiles de escritorio">
+                        <a [routerLink]="['/']" [queryParams]="{ categoria: 'LIBRO' }">LIBRO</a>
+                    </div>
+
+                    <div class="categoria">
+                        <img src="../../../../assets/images/Papeleria.jpg" alt="Campaña escolar">
+                        <a [routerLink]="['/']" [queryParams]="{ categoria: 'PAPELERÍA' }">PAPELERÍA</a>
+                    </div>
+
+                    <div class="categoria">
+                        <img src="../../../../assets/images/Accesorios.jpg" alt="Arte y diseño">
+                        <a [routerLink]="['/']" [queryParams]="{ categoria: 'ACCESORIOS' }">ACCESORIOS</a>
+
+                    </div>
+
                 </div>
-                <div class="categoria">
-                    <img src="../../../../assets/images/campaniaEscolar.avif" alt="Campaña escolar">
-                    <a href="#">CAMPAÑA ESCOLAR</a>
-                </div>
-                <div class="categoria">
-                    <img src="../../../../assets/images/arteydisenio.jpg" alt="Arte y diseño">
-                    <a href="#">ARTE Y DISEÑO</a>
-                </div>
-            </div>
-        </section>
+            </section>
+
                     <!-- <div class="destacados-grid">
                 <div class="producto">
                     <img src="../../../../assets/images/LapizArtesco2B.jpg" alt="Producto destacado 1">
@@ -61,24 +67,27 @@
                     <a href="#">Comprar ahora</a>
                 </div>
             </div> -->
- <section class="destacados container my-4">
-   <h2 class="text-center mb-4"><strong>Productos Destacados</strong></h2>
-   <div class="row">
-     <div class="col-md-4 mb-4" *ngFor="let d of productoResponse | slice:0:6">
-       <div class="card h-100">
-         <img [src]="d.tipo || 'assets/images/default.jpg'" class="card-img-top" alt="{{d.nombre}}">
-         <div class="card-body">
-           <h5 class="card-title">{{d.nombre}}</h5>
-           <p class="card-text">{{d.descripcion}}</p>
-           <span class="precio text-success fw-bold">{{d.precio | currency:'PEN'}}</span>
-         </div>
-         <div class="card-footer text-center">
-           <button class="btn btn-primary" (click)="addProducto(d)">Comprar ahora</button>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
+      <section id="productosDestacados" class="destacados container my-4">
+        <h2 class="text-center mb-4"><strong>Productos Destacados</strong></h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let d of productoResponse | slice:0:6">
+            <div class="card h-100">
+              <img [src]="d.tipo || 'assets/images/default.jpg'" class="card-img-top" alt="{{d.nombre}}">
+              <div class="card-body">
+                <h5 class="card-title">{{d.nombre}}</h5>
+                <p class="card-text">{{d.descripcion}}</p>
+                <span class="precio text-success fw-bold">{{d.precio | currency:'S/'}}</span>
+              </div>
+                  <div class="card-footer text-center">
+                    <button class="btn btn-comprar" (click)="addProducto(d)">
+                      Comprar ahora
+                      <span class="emoji-carrito">🛒</span>
+                    </button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
 </main>
 </body>
 </html>

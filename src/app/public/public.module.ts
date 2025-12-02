@@ -11,7 +11,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { DetalleEnvioComponentComponent } from './pages/detalle-envio/detalle-envio-component/detalle-envio-component.component';
 import { AcercaPageComponent } from './pages/acerca/acerca-page/acerca-page.component';
 import { AyudaPageComponent } from './pages/ayuda/ayuda-page/ayuda-page.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -32,6 +32,7 @@ import { AyudaPageComponent } from './pages/ayuda/ayuda-page/ayuda-page.componen
     PublicRoutingModule,
    
     SharedModule,
+    FormsModule 
   ]
 })
 export class PublicModule { }

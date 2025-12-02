@@ -22,34 +22,22 @@ export class CarritoComprasService {
   }
 
   addProducto(producto: ProductoResponse): void {
-    let item = this.listaProductos
-      .filter( i => i.producto.id == producto.id)[0];
+    let item = this.listaProductos.find(i => i.producto.id === producto.id);
     if(item) {
       item.cantidad++;
     } else {
-      item = {
-        producto: producto,
-        cantidad: 1
-      }
-      this.listaProductos.push(item);
+      this.listaProductos.push({ producto: producto, cantidad: 1 });
     }
     this.listaProductosSubject.next(this.listaProductos);
-    // guardar en el localstorage
-    const listaJson = JSON.stringify(this.listaProductos);
-    localStorage.setItem('carrito-compras', listaJson);
+    this.actualizarContador(); // <- actualizar inmediatamente
+    localStorage.setItem('carrito-compras', JSON.stringify(this.listaProductos));
   }
 
   removeProducto(id: number): void {
-    for(let index in this.listaProductos ) {
-      if (this.listaProductos[index].producto.id === id) {
-        //eliminarlo
-        this.listaProductos.splice(+index, 1);
-        // guardar en el localstorage
-        const listaJson = JSON.stringify(this.listaProductos);
-        localStorage.setItem('carrito-compras', listaJson);
-        break;
-      }
-    }
+    this.listaProductos = this.listaProductos.filter(i => i.producto.id !== id);
+    this.listaProductosSubject.next(this.listaProductos);
+    this.actualizarContador(); // <- actualizar inmediatamente
+    localStorage.setItem('carrito-compras', JSON.stringify(this.listaProductos));
   }
   sumarPrecios():number{
     const prodct=localStorage.getItem('carrito-compras');
@@ -63,18 +51,36 @@ export class CarritoComprasService {
   }
 
   editCantidad(id: number, cantidad: number): void {
-    let item = this.listaProductos
-      .filter( i => i.producto.id == id)[0];
+    const item = this.listaProductos.find(i => i.producto.id === id);
     if(item) {
       item.cantidad = cantidad;
+      this.listaProductosSubject.next(this.listaProductos);
+      this.actualizarContador(); // <- actualizar inmediatamente
+      localStorage.setItem('carrito-compras', JSON.stringify(this.listaProductos));
     }
-    this.listaProductosSubject.next(this.listaProductos);
-    // guardar en el localstorage
-    const listaJson = JSON.stringify(this.listaProductos);
-    localStorage.setItem('carrito-compras', listaJson);
   }
-
+  
   listarCarrito(): Observable<CarritoItem[]> {
     return this.listaProductosSubject.asObservable();
   }
+      // Contador de productos totales
+      private contadorSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+      contador$ = this.contadorSubject.asObservable();
+
+      // Función para actualizar el contador
+      private actualizarContador() {
+        const total = this.listaProductos.reduce((acc, item) => acc + item.cantidad, 0);
+        this.contadorSubject.next(total);
+      }
+  // ===========================
+  // VACÍAR CARRITO
+  // ===========================
+  vaciarCarrito(): void {
+    this.listaProductos = [];
+    this.listaProductosSubject.next(this.listaProductos); // Notificar cambios
+    this.actualizarContador(); // Actualizar contador de productos
+    localStorage.setItem('carrito-compras', JSON.stringify(this.listaProductos));
+  }
+
+
 }

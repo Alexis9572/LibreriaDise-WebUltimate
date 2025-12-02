@@ -1,0 +1,211 @@
+/* ============================ */
+/* ESTILO GENERAL DEL CONTENEDOR */
+/* ============================ */
+.cart-container {
+    max-width: 950px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================ */
+/* INDICADOR DE PASOS */
+/* ============================ */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #888;
+}
+
+.step-indicator span {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.step-indicator .text-primary {
+    color: #1f2937;
+    font-weight: 700;
+    border-bottom: 2px solid #1f2937;
+}
+
+/* ============================ */
+/* TITULOS */
+/* ============================ */
+h2, h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ============================ */
+/* PRODUCTOS DEL CARRITO */
+/* ============================ */
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.3s ease;
+}
+
+.product-item:hover {
+    background-color: #f9fafb;
+}
+
+.product-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.text-muted {
+    color: #6b7280 !important;
+    font-size: 14px;
+}
+
+.text-success {
+    font-weight: 700;
+    color: #10b981 !important;
+    font-size: 16px;
+}
+
+/* ============================ */
+/* FORMULARIO DE ENVÍO */
+/* ============================ */
+.direccion-envio {
+    background-color: #f9fafb;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.02);
+}
+
+.direccion-envio label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.direccion-envio input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.direccion-envio input:focus {
+    border-color: #1f2937;
+    box-shadow: 0 0 5px rgba(31, 41, 55, 0.2);
+    outline: none;
+}
+
+/* ============================ */
+/* RESUMEN DEL PEDIDO */
+/* ============================ */
+.summary {
+    background-color: #f9fafb;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.summary h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary .text-success {
+    color: #10b981 !important;
+}
+
+/* ============================ */
+/* BOTONES ANIMADOS */
+/* ============================ */
+button {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #1f2937;
+    color: #fff;
+    padding: 14px 0;
+    width: 48%;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: #111827;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #6b7280;
+    color: #6b7280;
+    background-color: transparent;
+    padding: 14px 0;
+    width: 48%;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary:active {
+    transform: translateY(1px);
+}
+
+/* ============================ */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .product-item img {
+        margin-bottom: 10px;
+    }
+    .btn-primary, .btn-outline-secondary {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -211,3 +211,16 @@ header {
 .destacados .btn-primary:hover {
   background: linear-gradient(135deg, #250044, #0f0092)!important;
 }
+
+/* Animación de rebote para botón */
+@keyframes bounce {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn-bounce {
+  animation: bounce 0.4s ease;
+}

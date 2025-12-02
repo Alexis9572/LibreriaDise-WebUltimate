@@ -1,31 +1,107 @@
-/* Sidebar azul estilo SB Admin */
+/* ============================ */
+/* SIDEBAR AZUL */
+/* ============================ */
 .sidebar-custom {
-  background-color: #4B6FD6;
-  height: 100vh;
-  padding: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
+  background-color: #1f2937; /* azul oscuro tipo SB Admin */
+  min-height: 100vh;
+  padding: 20px 15px;
 }
 
 .sidebar-title {
-  color: white;
+  color: #fff;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 30px;
-  font-size: 22px;
+  text-align: center;
 }
 
 .sidebar-custom .nav-link {
-  color: #ffffff;
-  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 
 .sidebar-custom .nav-link:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+  background-color: #111827;
+  border-radius: 8px;
+  padding-left: 12px;
 }
 
-/* Para que el main no quede debajo del sidebar */
+/* Submenú */
+.sidebar-custom .collapse .nav-link {
+  font-size: 14px;
+  color: #d1d5db; /* gris claro */
+  padding-left: 20px;
+}
+
+.sidebar-custom .collapse .nav-link:hover {
+  color: #fff;
+  background-color: #374151;
+  border-radius: 6px;
+}
+
+/* ============================ */
+/* CONTENIDO PRINCIPAL */
+/* ============================ */
 main {
-  margin-left: 230px;
+  background-color: #f3f4f6; /* gris muy claro */
+  min-height: 100vh;
+  padding: 30px;
+}
+
+h1 {
+  color: #111827;
+}
+
+/* ============================ */
+/* TARJETAS DE DEVOLUCIONES */
+/* ============================ */
+.cards .card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.value {
+  font-size: 16px;
+  color: #10b981; /* verde */
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.text-muted {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ============================ */
+/* RESPONSIVE */
+/* ============================ */
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+
+  .sidebar-custom {
+    display: none; /* ocultar sidebar en móvil */
+  }
+
+  .cards .card {
+    margin-bottom: 15px;
+  }
 }
