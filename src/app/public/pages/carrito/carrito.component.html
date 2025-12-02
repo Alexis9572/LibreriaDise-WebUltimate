@@ -13,7 +13,7 @@
             <div class="product-title">{{item.producto.nombre}}</div>
             <div class="product-description">{{item.producto.descripcion}}</div>
             <div class="product-description">{{item.producto.categoria}}</div>
-            <div>{{item.producto.precio}}</div>
+            <div>{{item.producto.precio | currency:'S/'}}</div>
             <div class="cart-item-quantity">  
                 <button class="btn-quantity" (click)="quitar1(item)">&#8722;</button>            
                 <span><strong>Cantidad:</strong>  {{item.cantidad}}</span>
@@ -47,8 +47,8 @@
     <div class="summary">
         <h2>Resumen</h2>
         <p>ENVÍO: GRATIS</p>
-        <div class="total">TOTAL:{{ total | currency:'USD' }}</div>
-        <button routerLink="/detalle-envio" type="button">Siguiente</button>
+        <div class="total">TOTAL: {{ total | currency:' S/' }}</div>
+        <button type="button" (click)="irADetalleEnvio()">Siguiente</button>
         <button routerLink="/tienda" type="button" class="cancel-button">Cancelar</button>
     </div>
 </div>

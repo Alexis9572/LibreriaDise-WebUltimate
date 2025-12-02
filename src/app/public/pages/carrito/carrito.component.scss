@@ -1,162 +1,292 @@
-/* Fondo de la página */
+/* ============================ */
+/* ESTILO GENERAL DE LA PÁGINA */
+/* ============================ */
 body {
-    font-family: 'Arial', sans-serif;
-    background-image: url('../../../../assets/images/Logo.jpeg'); /* Fondo con la imagen proporcionada */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
     color: #333;
-    padding: 20px;
 }
 
-/* Contenedor principal del carrito */
+/* ============================ */
+/* CONTENEDOR PRINCIPAL DEL CARRITO */
+/* ============================ */
 .cart-container {
-    background-color: rgba(255, 255, 255, 0.85); /* Fondo semitransparente */
-    padding: 30px;
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    max-width: 900px;
-    margin: auto;
+    max-width: 950px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Títulos */
-h2 {
-    font-size: 24px;
-    color: #444; /* Color de texto para contraste */
-    margin-bottom: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente juvenil */
-}
-
-/* Estilos para los pasos del proceso de compra */
+/* ============================ */
+/* INDICADOR DE PASOS */
+/* ============================ */
 .step-indicator {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #888;
 }
 
 .step-indicator span {
-    font-size: 16px;
-    margin: 0 15px;
-    color: #777;
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+    transition: all 0.3s ease;
 }
 
 .step-indicator .current {
-    font-weight: bold;
-    color: #444;
+    color: #1f2937;
+    font-weight: 700;
+    border-bottom: 2px solid #1f2937;
 }
 
-/* Estilos para los productos del carrito */
+/* ============================ */
+/* TITULOS */
+/* ============================ */
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 25px;
+}
+
+/* ============================ */
+/* PRODUCTOS DEL CARRITO */
+/* ============================ */
 .product-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    justify-content: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.3s ease;
 }
 
+.product-item:hover {
+    background-color: #f9fafb;
+}
+
+/* Imagen más grande y elegante */
 .product-item img {
-    width: 80px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex-shrink: 0;
 }
 
+/* Detalles del producto */
 .product-details {
     flex: 1;
-    margin-left: 20px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-title {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 5px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
 }
 
 .product-description {
     font-size: 14px;
-    color: #777;
+    color: #6b7280;
     margin-bottom: 10px;
 }
 
-/* Resumen del pedido */
-.summary {
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo casi blanco */
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-}
-
-/* Estilo de los botones */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff; /* Color azul vibrante */
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.product-price {
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 18px;
     margin-top: 10px;
 }
+
+/* ============================ */
+/* CANTIDAD Y BOTONES */
+/* ============================ */
 .cart-item-quantity {
     display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
     align-items: center;
-    margin-left: 200px;
+    gap: 12px;
+    margin-top: 12px;
 }
 
-button:hover {
-    background-color: #0056b3; /* Color de hover */
+.btn-quantity {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 6px 14px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.cancel-button {
-    background-color: #ccc;
-    color: #333;
-    margin-left: 10px;
+.btn-quantity:hover {
+    background-color: #1f2937;
+    color: #fff;
 }
 
-.cancel-button:hover {
-    background-color: #bbb;
+button.btn-danger {
+    background-color: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
 }
 
-/* Estilos para entradas de texto y selección */
-input[type="text"],
-select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 60px;
-    margin-left: 10px;
+button.btn-danger:hover {
+    background-color: #b91c1c;
 }
 
-/* Enlaces */
-a {
-    color: #007bff;
-    text-decoration: none;
+/* ============================ */
+/* RESUMEN DEL PEDIDO */
+/* ============================ */
+.summary {
+    background-color: #f9fafb;
+    padding: 35px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.02);
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #0056b3;
+.summary h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1f2937;
 }
 
-/* Estilos adicionales para el cupón */
-.coupon-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.summary p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #4b5563;
 }
 
 .total {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
     text-align: right;
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+/* Botones en resumen */
+.summary button {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    background-color: #1f2937;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.summary button:hover {
+    background-color: #111827;
+}
+
+.cancel-button {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.cancel-button:hover {
+    background-color: #d1d5db;
+}
+
+/* ============================ */
+/* INPUTS Y SELECTS */
+/* ============================ */
+input[type="text"],
+select {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #374151;
+    width: 60px;
+}
+/* Botones generales */
+button {
+    transition: all 0.3s ease; /* Animación suave para todos los cambios */
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Botón Siguiente */
+.summary button[type="button"] {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 14px 0;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(0);
+}
+
+.summary button[type="button"]:hover {
+    background-color: #111827;
+    transform: translateY(-2px); /* Efecto “levantar” */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.summary button[type="button"]:active {
+    transform: translateY(1px); /* Presionado hacia abajo */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Botón Cancelar */
+.cancel-button {
+    background-color: #e5e7eb;
+    color: #374151;
+    padding: 14px 0;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #d1d5db;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.cancel-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+/* Deshabilitado (opcional si aplicas carrito vacío) */
+button:disabled {
+    cursor: not-allowed;
+    background-color: #cbd5e1;
+    color: #6b7280;
+    box-shadow: none;
+    transform: none;
 }

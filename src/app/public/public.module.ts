@@ -41,6 +41,7 @@ import { PaginaPedidoListoComponent } from './pages/pagina-pedido-listo/pagina-p
     PublicRoutingModule,
    
     SharedModule,
+    FormsModule 
   ]
 })
 export class PublicModule { }

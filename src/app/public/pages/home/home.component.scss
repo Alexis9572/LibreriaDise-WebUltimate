@@ -79,19 +79,6 @@ body {
   margin-bottom: 0;
   text-shadow: 0 1px 8px rgba(48, 1, 49, 0.5);
 }
-
-/* ==========================
-   Header
-========================== */
-header {
-    background-color: #00ff00;
-    color: white;
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 /* Logo */
 .logo {
     display: flex;
@@ -102,28 +89,6 @@ header {
     width: 100px;
     height: auto;
     margin-right: 20px;
-}
-
-/* Buscador */
-.buscador {
-    display: flex;
-    align-items: center;
-}
-
-.buscador input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.buscador button {
-    padding: 10px 20px;
-    background-color: #357a38;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 /* ==========================
@@ -222,28 +187,6 @@ header {
 .producto h3 {
     font-size: 1.6em;
     margin-bottom: 10px;
-}
-
-.producto .precio {
-    font-weight: bold;
-    color: #4CAF50;
-    display: block;
-    margin: 10px 0;
-}
-
-.producto a {
-    display: inline-block;
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.producto a:hover {
-    background-color: #357a38;
 }
 
 /* ==========================
@@ -355,3 +298,54 @@ header {
   transform: scale(1.05);
 }
 
+.btn-comprar {
+  position: relative !important;
+  background: linear-gradient(135deg, #4b4b4b, #bea8d6) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc) !important;
+    transform: scale(1.05) !important;
+  }
+
+  &:active {
+    transform: scale(0.95) !important;
+  }
+
+  .emoji-carrito {
+    position: absolute !important;
+    top: -30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 1.5rem !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  &.clicked .emoji-carrito {
+    animation: subirEmoji 0.8s forwards !important;
+  }
+}
+
+/* Animación keyframes */
+@keyframes subirEmoji {
+  0% {
+    top: -30px;
+    opacity: 1;
+  }
+  50% {
+    top: -60px;
+    opacity: 1;
+  }
+  100% {
+    top: -90px;
+    opacity: 0;
+  }
+}

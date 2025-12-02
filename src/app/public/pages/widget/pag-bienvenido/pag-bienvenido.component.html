@@ -1,16 +1,19 @@
-<!-- ======= Página de Bienvenida ======= -->
-<div class="container">
-  <!-- ======= Encabezado con imágenes ======= -->
-  <div class="header">
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
-      alt="Happy Face Izquierda"
-    />
-    <div class="welcome">¡Bienvenido!</div>
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
-      alt="Happy Face Derecha"
-    />
+<div class="bienvenido-container container p-4 shadow rounded">
+
+  <!-- Encabezado -->
+  <div class="header d-flex justify-content-center align-items-center mb-4">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
+         alt="Happy Face Izquierda" class="mx-2" />
+    <h2 class="text-center m-0">¡Bienvenido!</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ00ua9tSnM2TxKbshqmM_VGGih7kGn7ufIQ&s"
+         alt="Happy Face Derecha" class="mx-2" />
+  </div>
+
+  <!-- Perfil de usuario -->
+  <div class="profile text-center mb-4" *ngIf="usuario">
+    <img src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png"
+         alt="User Photo" class="rounded-circle mb-2" width="120" height="120" />
+    <h4>{{ usuario }}</h4>
   </div>
 
   <!-- ======= Sección de perfil ======= -->
@@ -19,9 +22,17 @@
     <p>{{ usuario }}</p>
   </div>
 
-  <!-- ======= Botones ======= -->
-  <button routerLink="/home" type="button" class="btn">Volver</button>
+  <!-- Botones -->
+  <div class="d-flex justify-content-center gap-3">
+    <!-- Botón cerrar sesión: solo si está logueado -->
+    <button *ngIf="usuario" class="btn btn-danger" (click)="cerrarSesion()">
+      Cerrar Sesión
+    </button>
 
-  <!-- Botón para cerrar sesión -->
-  <button class="btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+    <!-- Botón iniciar sesión: solo si NO está logueado -->
+    <button *ngIf="!usuario" class="btn btn-primary" routerLink="/login">
+      Iniciar Sesión
+    </button>
+  </div>
+
 </div>

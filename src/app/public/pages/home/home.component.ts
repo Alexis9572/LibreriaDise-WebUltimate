@@ -6,6 +6,7 @@ import { CarritoComprasService } from '../../services/carrito-compras.service';
 import { Producto } from '../../models/producto';
 import { TiendaServiceService } from '../../../services/tienda/tienda-service.service';
 import { ProductoResponse } from '../../../models/producto/productoResponse.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,58 +14,80 @@ import { ProductoResponse } from '../../../models/producto/productoResponse.mode
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+
+  categoriaFiltro: string = '';
+  productoResponse: ProductoResponse[] = [];
   pokemons: any[] = [];
   pkmnLoadSt: LoadStateEnum = LoadStateEnum.None;
-  productoResponse:ProductoResponse[]  =[]
   loadStateEnum = LoadStateEnum;
   shared = "mundo";
-  productos: Producto[] = [
-    {nombre: "perrito", precio: 120.5, id: 1},
-    {nombre: "gatito", precio: 12.5, id: 2},
-    {nombre: "lorito", precio: 2.5, id: 3},
-    {nombre: "cuy", precio: 30.5, id: 4},
-    {nombre: "capibara", precio: 50.5, id: 5},
-    {nombre: "marmota", precio: 134.5, id: 6},
-    {nombre: "oso", precio: 45.5, id: 7},
-    {nombre: "hamster", precio: 20.5, id: 8},
-    {nombre: "fenix", precio: 1002.5, id: 9},
-  ]
+
   constructor(
     private pokeService: PokeapiService,
-    private _tiendaService:TiendaServiceService,
+    private _tiendaService: TiendaServiceService,
     private msgService: MessageService,
     private carritoSrv: CarritoComprasService,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit(): void {
-   
-    this.listarProductos()
+
+    this.route.queryParams.subscribe(params => {
+      this.categoriaFiltro = params['categoria'] || '';
+      this.listarProductos();
+    });
+
     this.loadPkmns();
-    //this.shared = this.msgService.getMsg();
+
     this.msgService.getMsg().subscribe({
       next: (data) => this.shared = data
     });
-    
   }
 
-  addProducto(prod: ProductoResponse) {
-    debugger
-    this.carritoSrv.addProducto(prod);
+addProducto(prod: ProductoResponse, event?: any) {
+  this.carritoSrv.addProducto(prod);
+
+  // Animación del carrito
+  if (event) {
+    const btn = event.currentTarget;
+    btn.classList.add('clicked');
+    setTimeout(() => {
+      btn.classList.remove('clicked');
+    }, 600); // duración de la animación
   }
- listarProductos( )
-  {
-    this._tiendaService.getAll().subscribe(
-      {
-        next:(data:ProductoResponse[])=>{this.productoResponse=data},
-        error:(err)=>{alert(err)},
-        complete:()=>{}
+}
+
+
+listarProductos() {
+  this._tiendaService.getAll().subscribe({
+    next: (data: ProductoResponse[]) => {
+
+      if (this.categoriaFiltro) {
+        this.productoResponse = data.filter(p =>
+          p.categoria?.toUpperCase() === this.categoriaFiltro.toUpperCase()
+        );
+      } else {
+        this.productoResponse = data;
       }
-    )
-  }
+
+      // ===== Scroll automático hacia productos destacados =====
+      if (this.categoriaFiltro) {
+        const element = document.getElementById('productosDestacados');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+    },
+    error: (err) => alert(err)
+  });
+}
+
 
   changeMessage(msg: string) {
     this.msgService.setMsg(msg);
   }
+
   loadPkmns() {
     this.pkmnLoadSt = LoadStateEnum.Loading;
     this.pokeService.listPokemons().then(
@@ -79,6 +102,5 @@ export class HomeComponent implements OnInit {
       } 
     );
   }
-
 
 }

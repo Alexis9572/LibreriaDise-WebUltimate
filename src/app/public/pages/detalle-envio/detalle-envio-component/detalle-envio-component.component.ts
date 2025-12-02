@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoItem } from '../../../models/carrito';
 import { CarritoComprasService } from '../../../services/carrito-compras.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-detalle-envio-component',
@@ -10,9 +12,11 @@ import { CarritoComprasService } from '../../../services/carrito-compras.service
 export class DetalleEnvioComponentComponent implements OnInit {
   carrito: CarritoItem[] = [];
   total:number=0;
-  constructor(
-    private carritoSrv: CarritoComprasService
-  ){}
+constructor(
+  private carritoSrv: CarritoComprasService,
+  private router: Router
+) {}
+
 
   ngOnInit(): void {
     this.actualizarTotal();
@@ -45,5 +49,15 @@ export class DetalleEnvioComponentComponent implements OnInit {
       this.carritoSrv.editCantidad(item.producto.id, --item.cantidad);
     }
   }
+  // ===========================
+// CANCELAR PEDIDO
+// ===========================
+cancelar(): void {
+  this.carritoSrv.vaciarCarrito(); // Vacía el carrito en el servicio
+  this.carrito = [];
+  this.total = 0;
+  this.router.navigate(['/tienda']); // Regresa a pantalla de inicio
+}
+
 
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CarritoComprasService } from '../../services/carrito-compras.service';
 import { CarritoItem } from '../../models/carrito';
@@ -10,9 +11,11 @@ import { CarritoItem } from '../../models/carrito';
 export class CarritoComponent implements OnInit {
   carrito: CarritoItem[] = [];
   total:number=0;
-  constructor(
-    private carritoSrv: CarritoComprasService
-  ){}
+ constructor(
+  private carritoSrv: CarritoComprasService,
+  private router: Router
+){}
+
 
   ngOnInit(): void {
     this.actualizarTotal();
@@ -48,6 +51,15 @@ export class CarritoComponent implements OnInit {
       this.actualizarTotal();
     }
   }
-  
+  irADetalleEnvio(): void {
+  if(this.carrito.length === 0) {
+    alert('Tu carrito está vacío, agrega productos antes de continuar.');
+    return; // Detiene la navegación
+  }
+
+  // Si hay productos, navegar al detalle de envío
+  this.router.navigate(['/detalle-envio']);
+}
+
 
 }

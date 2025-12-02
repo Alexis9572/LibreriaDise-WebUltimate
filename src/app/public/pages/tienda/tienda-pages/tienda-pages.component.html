@@ -6,6 +6,7 @@
 
     </div>
 
+
     <!-- Carrusel -->
     <div id="carouselExample" class="carousel slide shadow-lg rounded" data-bs-ride="carousel">
       <div class="carousel-inner rounded">
@@ -31,20 +32,30 @@
     </div>
   </header>
 </main>
-
+ <!-- Barra de búsqueda -->
+    <div class="container my-4 text-center">
+      <input
+        type="text"
+        class="form-control w-50 mx-auto"
+        placeholder="Buscar productos..."
+        [(ngModel)]="busqueda"
+        (input)="filtrarProductos()">
+    </div>
+<!-- PRODUCTOS -->
 <section class="destacados container my-4">
     <h2 class="text-center mb-4">Productos</h2>
     <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let d of productoResponse">
-            <div class="card h-100">
-                <img [src]="d.tipo" class="card-img-top" alt="{{d.nombre}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{d.nombre}}</h5>
-                    <p class="card-text">{{d.descripcion}}</p>
-                    <span class="precio text-success fw-bold">{{d.precio | currency}}</span>
-                </div>
-                <div class="card-footer text-center">
-                    <a (click)="addProducto(d)" class="btn btn-primary">Comprar ahora</a>
+              <div class="col-md-4 mb-4" *ngFor="let d of productoFiltrado">
+                  <div class="card h-100">
+                    <img [src]="d.tipo" class="card-img-top" alt="{{d.nombre}}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{d.nombre}}</h5>
+                      <p class="card-text">{{d.descripcion}}</p>
+                      <span class="precio text-success fw-bold">{{d.precio | currency:' S/' }}</span>
+                    </div>
+                    <div class="card-footer text-center">
+                      <a (click)="addProducto(d, $event)" class="btn btn-primary">Comprar ahora</a>
+
                 </div>
             </div>
         </div>

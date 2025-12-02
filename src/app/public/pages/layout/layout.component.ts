@@ -16,16 +16,25 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     // Cargar carrito
-    this.carritoSrv.listarCarrito().subscribe({
-      next: (data) => {
-        this.carrito = data;
-        this.cantidadCarrito = data.length;
-      }
-    });
+        this.carritoSrv.listarCarrito().subscribe({
+          next: (data) => {
+            this.carrito = data;
+            // Sumar cantidades de todos los productos
+            this.cantidadCarrito = data.reduce((acc, item) => acc + item.cantidad, 0);
+          }
+        });
+
 
     // Cargar menú
     this.rellenarMenu();
   }
+
+  cerrarMenu() {
+  const menu = document.getElementById("navbarMenu");
+  if (menu && menu.classList.contains("show")) {
+    menu.classList.remove("show");
+  }
+}
 
   rellenarMenu() {
 
@@ -39,7 +48,7 @@ export class LayoutComponent implements OnInit {
           target: "TargetPrincipal",
           subMenu: [
             { name: "Login", url: "/login", incon: "fa fa-fw fa-search text-dark mr-2" },
-            { name: "Carrito", url: "/carrito", incon: "fa fa-fw fa-shopping-cart text-dark mr-2" }
+            {name:"Carrito",url:"/perfil", incon:"fa fa-fw fa-user text-dark mr-3"},  
           ]
         }
       ];
