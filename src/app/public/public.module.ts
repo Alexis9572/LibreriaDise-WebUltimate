@@ -11,7 +11,10 @@ import { HeaderComponent } from './pages/header/header.component';
 import { DetalleEnvioComponentComponent } from './pages/detalle-envio/detalle-envio-component/detalle-envio-component.component';
 import { AcercaPageComponent } from './pages/acerca/acerca-page/acerca-page.component';
 import { AyudaPageComponent } from './pages/ayuda/ayuda-page/ayuda-page.component';
-import { FormsModule } from '@angular/forms';
+import { CompraComponentComponent } from './pages/compra-component/compra-component.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginaPedidoListoComponent } from './pages/pagina-pedido-listo/pagina-pedido-listo.component';
+
 
 
 
@@ -23,12 +26,18 @@ import { FormsModule } from '@angular/forms';
     CarritoComponent,
     PiePaginaComponent,
     HeaderComponent,
+    
     DetalleEnvioComponentComponent,
     AcercaPageComponent,
-    AyudaPageComponent
+    AyudaPageComponent,
+    CompraComponentComponent,
+    PaginaPedidoListoComponent
   ],
   imports: [
     CommonModule,
+     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     PublicRoutingModule,
    
     SharedModule,

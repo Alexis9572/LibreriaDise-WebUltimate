@@ -15,14 +15,17 @@ export class PagBienvenidoComponent {
   {
     this.usuario = sessionStorage.getItem("usuario")|| "";
   }
-  cerrarSesion(){
-    
-    sessionStorage.clear();
-    window.location.reload();
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['/home']); // o la ruta que quieras recargar
-          });;//redireccion a home
-  }
+  cerrarSesion() {
+  sessionStorage.clear();
+
+  this.router.navigate(['/']).then(() => {
+    // Si quieres forzar recarga, usa esto, pero 100ms después
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  });
+}
+
 }
 
 

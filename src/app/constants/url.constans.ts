@@ -5,6 +5,7 @@ export const UrlConstans = {
     rol: dominio + 'api/Rol',
     producto: dominio + 'api/Producto',
     auth: dominio + 'api/Auth',
+    usuario: dominio + 'api/Usuario',
     pedido: dominio + 'api/Pedido',
     devolucion: dominio + 'api/Devolucione'
 };

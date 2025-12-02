@@ -18,6 +18,6 @@ export class UsuarioServiceService   extends CrudServiceService<UsuarioVRequest,
    }
    resitroUsuario(request:UsuarioVRequest):Observable<UsuarioVResponse>
    {
-       return this.http.post<UsuarioVResponse>(UrlConstans.auth,request)
+       return this.http.post<UsuarioVResponse>(UrlConstans.usuario,request)
     }
 }

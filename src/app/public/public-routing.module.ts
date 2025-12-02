@@ -17,6 +17,9 @@ import { TemplatePedidosComponent } from '../private/pages/template-pedidos/temp
 import { RegisterUserComponentComponent } from '../auth/pages/register-user-component/register-user-component.component';
 import { AcercaPageComponent } from './pages/acerca/acerca-page/acerca-page.component';
 import { AyudaPageComponent } from './pages/ayuda/ayuda-page/ayuda-page.component';
+import { CompraComponentComponent } from './pages/compra-component/compra-component.component';
+import { PaginaPedidoListoComponent } from './pages/pagina-pedido-listo/pagina-pedido-listo.component';
+import { authGuard } from '../guards/auth.guard';
 
 
 const routes: Routes = [
@@ -25,7 +28,11 @@ const routes: Routes = [
         children: [
             { path: 'home', component: HomeComponent},
             { path: 'contactenos', component: ContactsComponent},
-            { path: 'carrito', component: CarritoComponent},
+            { 
+                path: 'carrito', component: CarritoComponent,
+                canActivate:[authGuard]
+
+            },
             { path: 'dasboard', component:  TemplateComponent},
             { path: 'dasboard/devoluciones', component: TemplateSidebarComponent},
             { path: 'dasboard/productos', component: TemplateProductosComponent},
@@ -34,11 +41,18 @@ const routes: Routes = [
             { path: 'login', component: LoginComponent},
             { path: 'detalle-envio', component: DetalleEnvioComponentComponent},
             { path: 'register-user', component:RegisterUserComponentComponent},
-            { path: 'perfil', component:PagBienvenidoComponent},
+            { 
+                path: 'perfil', component:PagBienvenidoComponent,
+                canActivate:[authGuard]
+
+            },
             { path: 'contacto', component:ContactsComponent},
             { path: 'acerca', component: AcercaPageComponent }, 
             { path: 'ayuda', component: AyudaPageComponent },
+            { path: 'comprar', component: CompraComponentComponent },
+            { path: 'pedido-listo', component: PaginaPedidoListoComponent },
             { path: '**', redirectTo: 'home' }
+            
         ]
     }
 ];

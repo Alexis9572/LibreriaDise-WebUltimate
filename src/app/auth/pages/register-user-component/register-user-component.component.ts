@@ -15,6 +15,7 @@ export class RegisterUserComponentComponent {
   myForm : FormGroup
   envioUsuario :UsuarioVRequest = new UsuarioVRequest()
   frmLoadSt = LoadStateEnum.None;
+  loadStateEnum = LoadStateEnum;
   constructor(
     private fb:FormBuilder,
     private _router:Router,
@@ -45,6 +46,8 @@ export class RegisterUserComponentComponent {
   }
   crearUsuario()
   {
+    this.envioUsuario = this.myForm.getRawValue()
+    this.frmLoadSt = LoadStateEnum.Loading;
     this._usuarioService.resitroUsuario(this.envioUsuario).subscribe(
       {
         next:(data:UsuarioVResponse)=>{
@@ -54,6 +57,8 @@ export class RegisterUserComponentComponent {
             sessionStorage.setItem("usuario",data.loginResponse.usuario.usuario1)
             sessionStorage.setItem("idRol",data.loginResponse.usuario.rolId.toString())
             sessionStorage.setItem("id",data.loginResponse.usuario.id.toString())
+            
+            this._router.navigate([''])
         },
         complete:()=>
         {
@@ -63,7 +68,7 @@ export class RegisterUserComponentComponent {
           if(idRol == "1")
           {
             
-            this._router.navigate(['/dasboard']).then(() => {
+            this._router.navigate(['']).then(() => {
               window.location.reload();
             });;
           }
